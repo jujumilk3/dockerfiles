@@ -7,7 +7,7 @@
 # Enriched by patterns found at https://github.com/openshift/postgresql/blob/master/9.4/Dockerfile.rhel7 by
 #   Christoph Görn <goern@redhat.com>
 
-FROM centos:centos7
+FROM centos:7.5.1804
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
 # Labels consumed by Red Hat build service
