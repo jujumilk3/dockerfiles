@@ -1,14 +1,11 @@
 FROM python:3.9
 
+WORKDIR /opt/build
+
 ENV OPENCV_VERSION="4.5.3"
-ENV TZ UTC
 
-WORKDIR /home/docker/code/opencv
-
-# install packages and opencv
 RUN apt-get -qq update \
     && apt-get -qq install -y --no-install-recommends \
-        cron \
         build-essential \
         cmake \
         git \
@@ -16,7 +13,6 @@ RUN apt-get -qq update \
         unzip \
         yasm \
         pkg-config \
-        supervisor \
         libswscale-dev \
         libtbb2 \
         libtbb-dev \
@@ -54,4 +50,4 @@ RUN apt-get -qq update \
     && rm -rf /opt/opencv-${OPENCV_VERSION} \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get -qq autoremove \
-    && apt-get -qq clean \
+    && apt-get -qq clean
