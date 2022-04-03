@@ -1,16 +1,16 @@
 FROM python:3.9
 
-WORKDIR /docker/home/code
+WORKDIR /home/docker/code
 
 RUN apt-get -qq update \
     && apt-get -qq install -y --no-install-recommends \
-        cron\
+        cron \
     && apt-get -qq autoremove \
     && apt-get -qq clean
 
-COPY . /docker/home/code
+COPY . /home/docker/code
 
-RUN cp /docker/home/code/cronjob /etc/cron.d/cronjob
+RUN cp /home/docker/code/cronjob /etc/cron.d/cronjob
 RUN chmod +x /etc/cron.d/cronjob
 RUN crontab /etc/cron.d/cronjob
 
