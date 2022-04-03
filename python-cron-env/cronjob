@@ -1,0 +1,2 @@
+* * * * * date >> /var/log/date.log 2>&1
+* * * * * env >> /var/log/env.log 2>&1
